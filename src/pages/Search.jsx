@@ -7,7 +7,7 @@ import { useTitle } from "../hooks/useTitle";
 export const Search = ({ apiPath }) => {
   const [searchParams] = useSearchParams();
   const queryTerm = searchParams.get("q");
-  const { data: movies } = useFetch(apiPath, queryTerm);
+  const { data: movies } = queryTerm ? useFetch(apiPath, queryTerm) : useFetch(apiPath);
   const pageTitle = useTitle(`Search Results for ${queryTerm} / CineVite`);
   return (
     <main>

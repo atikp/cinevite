@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 
-export const useFetch = (apiPath,queryTerm="") => {
+export const useFetch = (apiPath,queryTerm="",currentPage) => {
   const [data, setData] = useState([]);
-  const url = `https://api.themoviedb.org/3/${apiPath}?api_key=${import.meta.env.VITE_API_KEY}&query=${queryTerm}`
+
+  const url = `https://api.themoviedb.org/3/${apiPath}?api_key=${import.meta.env.VITE_API_KEY}&query=${queryTerm}`;
+  // queryTerm="" ? `https://api.themoviedb.org/3/${apiPath}?api_key=${import.meta.env.VITE_API_KEY}${currentPage}` :
+  console.log(url,currentPage);
+
   useEffect(() => {
     async function fetchMovies() {
       const response = await fetch(url);
@@ -10,7 +14,7 @@ export const useFetch = (apiPath,queryTerm="") => {
       setData(json.results);
     }
     fetchMovies();
-  }, [url]);
+  }, [url,currentPage]);
 
   return { data }
 };
