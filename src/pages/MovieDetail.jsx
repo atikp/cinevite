@@ -142,7 +142,7 @@ export const MovieDetail = () => {
       </section>
       <section className="flex flex-wrap flex-col items-center">
         <h2 className="text-3xl p-5 dark:text-white " id="relatedVideos">Related Videos</h2>
-        <div className="flex flex-wrap">
+        <div className="flex justify-center flex-wrap">
         {videos.map((video)=> (
           <div className="m-4"key={video.id}>
             {/* <video className="w-96" controls>
@@ -151,7 +151,7 @@ export const MovieDetail = () => {
             </video> */}
             <Iframe id="ytplayer" type="text/html" width="350px" height="196.875px"
 src={`https://www.youtube.com/embed/${video.key}`}
-frameborder="0" allowfullscreen></Iframe>
+frameborder="0" allowfullscreen>your browser does not support this video</Iframe>
             {/* <iframe width="350" height="196.875" src={`https://www.youtube.com/embed/${video.key}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
           </div>
         ))}
