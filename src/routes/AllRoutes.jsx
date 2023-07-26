@@ -3,7 +3,7 @@ import { MovieList, MovieDetail, Search, PageNotFound } from "../pages";
 
 
 export const AllRoutes = ({currentPage}) => {
-  console.log(currentPage)
+  // console.log(currentPage)
   return (
     <div className="dark:bg-darkbg">
       <Routes>
